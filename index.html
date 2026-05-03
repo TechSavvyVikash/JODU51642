@@ -1,113 +1,273 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Jio AirFiber</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AirFiber Pro Services</title>
+
 <style>
+* {margin:0;padding:0;box-sizing:border-box;}
+
 body {
-    margin: 0;
-    font-family: Arial;
-}
-
-header {
-    background: #0a58ca;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0d1117;
     color: white;
-    padding: 15px;
-    text-align: center;
+    scroll-behavior: smooth;
 }
 
+/* NAVBAR */
 nav {
-    background: #003f88;
-    padding: 10px;
-    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    z-index: 1000;
 }
-
 nav a {
-    color: white;
-    margin: 10px;
+    color: #58a6ff;
+    margin: 0 15px;
     text-decoration: none;
+    font-weight: bold;
 }
+nav a:hover {color: white;}
 
-section {
-    padding: 30px;
-}
-
-.card {
-    background: #f5f5f5;
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(135deg,#0d1117,#161b22);
     padding: 20px;
-    margin: 10px 0;
-    border-radius: 10px;
 }
 
-footer {
-    background: #003f88;
+/* HERO TEXT */
+.hero-text h1 {
+    font-size: 50px;
+    animation: fadeUp 1s ease;
+}
+.hero-text p {
+    margin-top: 10px;
+    color: #aaa;
+}
+.btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #238636;
+    border: none;
+    border-radius: 10px;
     color: white;
-    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn:hover {transform: scale(1.1);}
+
+/* HERO IMAGE */
+.hero img {
+    width: 350px;
+    animation: float 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 25px #58a6ff);
+}
+
+/* FLOAT */
+@keyframes float {
+    0% {transform: translateY(0);}
+    50% {transform: translateY(-20px);}
+    100% {transform: translateY(0);}
+}
+
+/* SECTION */
+section {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 20px;
+}
+
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(12px);
+    transition: 0.4s;
+    opacity: 0;
+    transform: translateY(40px);
+}
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* TERMINAL */
+.terminal {
+    background: black;
+    padding: 15px;
+    border-radius: 10px;
+    height: 250px;
+    overflow-y: auto;
+    font-family: monospace;
+}
+input {
+    width: 100%;
+    background: black;
+    color: lime;
+    border: none;
     padding: 10px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #161b22;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+    from {opacity:0;transform:translateY(30px);}
+    to {opacity:1;transform:translateY(0);}
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>Jio AirFiber</h1>
-<p>High-Speed Wireless Internet</p>
-</header>
-
 <nav>
 <a href="#home">Home</a>
-<a href="#plans">Plans</a>
+<a href="#services">Services</a>
 <a href="#features">Features</a>
-<a href="#benefits">Benefits</a>
-<a href="#coverage">Coverage</a>
+<a href="#plans">Plans</a>
+<a href="#dashboard">Dashboard</a>
 <a href="#contact">Contact</a>
 </nav>
 
-<section id="home">
-<h2>Welcome</h2>
-<p>Enjoy ultra-fast internet without wires.</p>
+<!-- HERO -->
+<div class="hero" id="home">
+    <div class="hero-text">
+        <h1>AirFiber Pro</h1>
+        <p>Ultra-Fast Wireless Internet Experience</p>
+        <button class="btn" onclick="scrollToSection('services')">Explore</button>
+    </div>
+
+    <!-- 👉 PUT YOUR IMAGE HERE -->
+    <img src="router.png" alt="AirFiber Router">
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+<h2>Services</h2>
+<div class="grid">
+<div class="card">Installation & Setup</div>
+<div class="card">Router Optimization</div>
+<div class="card">Network Troubleshooting</div>
+<div class="card">Speed Boosting</div>
+</div>
 </section>
 
-<section id="plans">
-<h2>Plans</h2>
-<div class="card">₹599 - 30 Mbps</div>
-<div class="card">₹899 - 100 Mbps</div>
-<div class="card">₹1499 - 300 Mbps</div>
-</section>
-
+<!-- FEATURES -->
 <section id="features">
 <h2>Features</h2>
-<ul>
-<li>Wireless Internet</li>
-<li>Fast Installation</li>
-<li>No cables</li>
-</ul>
+<div class="grid">
+<div class="card">No Cable Required</div>
+<div class="card">5G Wireless Technology</div>
+<div class="card">Low Latency Gaming</div>
+<div class="card">Smart Home Ready</div>
+</div>
 </section>
 
-<section id="benefits">
-<h2>Benefits</h2>
-<ul>
-<li>Streaming & Gaming</li>
-<li>Work from home</li>
-<li>Stable connection</li>
-</ul>
+<!-- PLANS -->
+<section id="plans">
+<h2>Plans</h2>
+<div class="grid">
+<div class="card">₹599 – 30 Mbps</div>
+<div class="card">₹899 – 100 Mbps</div>
+<div class="card">₹1499 – 300 Mbps</div>
+</div>
 </section>
 
-<section id="coverage">
-<h2>Coverage</h2>
-<p>Available in major cities across India</p>
+<!-- DASHBOARD -->
+<section id="dashboard">
+<h2>Live Dashboard (Demo)</h2>
+
+<div class="card show">
+<p>Status: <span id="status">Online</span></p>
+<p>Speed: <span id="speed">120 Mbps</span></p>
+<button class="btn" onclick="updateStats()">Refresh</button>
+</div>
+
+<h3>Web Terminal</h3>
+<div class="terminal" id="output"></div>
+<input id="cmd" placeholder="type: help" onkeydown="run(event)">
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
 <h2>Contact</h2>
-<p>Email: support@jio.com</p>
+<div class="card show">
+<p>Email: support@example.com</p>
 <p>Phone: 1800-123-456</p>
+</div>
 </section>
 
-<footer>
-© 2026 Jio AirFiber
-</footer>
+<footer>© 2026 AirFiber Pro</footer>
+
+<script>
+
+/* SCROLL */
+function scrollToSection(id){
+    document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+/* TERMINAL */
+function run(e){
+if(e.key==="Enter"){
+let input=document.getElementById("cmd").value;
+let out=document.getElementById("output");
+
+let res="";
+if(input==="help") res="commands: help, status, speed, clear";
+else if(input==="status") res="System running ✔";
+else if(input==="speed") res="Speed: "+Math.floor(Math.random()*300)+" Mbps";
+else if(input==="clear"){out.innerHTML="";return;}
+else res="unknown command";
+
+out.innerHTML+=`<div>> ${input}</div><div>${res}</div>`;
+document.getElementById("cmd").value="";
+out.scrollTop=out.scrollHeight;
+}
+}
+
+/* STATS */
+function updateStats(){
+document.getElementById("speed").innerText =
+Math.floor(Math.random()*300)+" Mbps";
+}
+
+/* SCROLL ANIMATION */
+const cards = document.querySelectorAll('.card');
+window.addEventListener('scroll', () => {
+cards.forEach(card => {
+let top = card.getBoundingClientRect().top;
+if(top < window.innerHeight - 50){
+card.classList.add('show');
+}
+});
+});
+</script>
 
 </body>
 </html>
