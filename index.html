@@ -40,9 +40,11 @@ body{
 }
 
 .logo{
-    width:180px;
-    margin-bottom:25px;
-    animation:float 4s ease-in-out infinite;
+    position:fixed;
+    top:20px;
+    left:20px;
+    width:140px;
+    z-index:1000;
 }
 
 h1{
@@ -295,7 +297,43 @@ p{
 }
 
 }
-    
+ .slider{
+    position:relative;
+
+    width:100%;
+    height:320px;
+
+    margin:20px auto;
+
+    overflow:hidden;
+}
+
+.slide{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:min(350px,80vw);
+
+    opacity:0;
+
+    transition:all .8s ease;
+
+    filter:drop-shadow(
+        0 0 25px rgba(88,166,255,.4)
+    );
+}
+
+.slide.active{
+
+    opacity:1;
+
+    animation:float 4s infinite ease-in-out;
+}   
 </style>
 </head>
 <body>
@@ -306,8 +344,15 @@ p{
 
     <!-- Replace with your logo/image -->
     <img src="images/logo.png" class="logo" alt="Logo">
-    <img src="images/router.png" class="router" alt="Router">
+   <div class="slider">
 
+    <img src="images/router1.png" class="slide active">
+
+    <img src="images/router2.png" class="slide">
+
+    <img src="images/router3.png" class="slide">
+
+</div>
     <h1>COMING SOON</h1>
 
     <p>We're building something amazing. Stay tuned for the launch.</p>
@@ -525,7 +570,28 @@ closeQuery();
 }
 
 }
-    
+ const slides =
+document.querySelectorAll('.slide');
+
+let current = 0;
+
+function nextSlide(){
+
+slides[current]
+.classList.remove('active');
+
+current++;
+
+if(current >= slides.length){
+current = 0;
+}
+
+slides[current]
+.classList.add('active');
+
+}
+
+setInterval(nextSlide,3000);   
 </script>
 
 </body>
