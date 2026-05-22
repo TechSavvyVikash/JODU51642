@@ -187,7 +187,31 @@ p{
     font-size:22px;
 }
 
-    
+@media(max-width:768px){
+
+.router{
+width:220px;
+}
+
+.logo{
+width:120px;
+}
+
+}
+
+    body{
+    font-family:Segoe UI,Arial,sans-serif;
+    background:linear-gradient(135deg,#0d1117,#161b22);
+    color:#fff;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+    .container{
+    text-align:center;
+    z-index:2;
+    padding:20px;
+}
     
 </style>
 </head>
@@ -390,8 +414,34 @@ setInterval(()=>{
 },1000);
 
 
+function openSubscribe(){
+    document.getElementById("subscribePopup").style.display="flex";
+}
+
+function closeSubscribe(){
+    document.getElementById("subscribePopup").style.display="none";
+}
+
+function openQuery(){
+    document.getElementById("queryPopup").style.display="flex";
+}
+
+function closeQuery(){
+    document.getElementById("queryPopup").style.display="none";
+}
 
 
+window.onclick=function(event){
+
+if(event.target==document.getElementById("subscribePopup")){
+closeSubscribe();
+}
+
+if(event.target==document.getElementById("queryPopup")){
+closeQuery();
+}
+
+}
     
 </script>
 
