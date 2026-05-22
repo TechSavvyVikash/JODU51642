@@ -312,27 +312,31 @@ p{
 
     position:absolute;
 
+    top:45%;
+
     left:50%;
-    top:50%;
 
     transform:translate(-50%,-50%);
 
-    width:min(350px,80vw);
+    width:auto;
+
+    max-width:420px;
+
+    max-height:350px;
+
+    object-fit:contain;
 
     opacity:0;
 
-    transition:all .8s ease;
+    transition:opacity .8s ease;
 
     filter:drop-shadow(
-        0 0 25px rgba(88,166,255,.4)
+        0 0 35px rgba(88,166,255,.45)
     );
-}
 
 .slide.active{
-
     opacity:1;
-
-    animation:float 4s infinite ease-in-out;
+    animation:float 4s ease-in-out infinite;
 }
     .slide{
     max-height:240px;
